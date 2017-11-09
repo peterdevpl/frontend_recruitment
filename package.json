@@ -4,12 +4,12 @@
   "description": "Zadanie rekrutacyjne",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "server": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Vongriffe/frontend_recruitment.git",
-    "server": "webpack --config webpack.config.js"
+    "url": "git+https://github.com/Vongriffe/frontend_recruitment.git"
   },
   "author": "Kamel Boukoffa - Vongriffe",
   "license": "ISC",
