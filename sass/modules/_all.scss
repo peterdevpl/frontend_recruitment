@@ -1,0 +1,39 @@
+
+@mixin inputSubmit($colorBackground, $color ) {
+  input[type="submit"] {
+    background: $colorBackground;
+    border-color: transparent;
+    color: $color;
+    cursor: pointer;
+  }
+}
+%input {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+    outline: 0;
+    font-family: inherit;
+    font-size: 0.95em;
+  }
+
+  %form {
+    padding: 1rem;
+    width: 45rem;
+    margin: 10px auto;
+  }
+
+  %button {
+    $color: #5a57ff;
+    $color-alt: #ffc700;
+
+    color: $color-alt;
+    background: lighten($color, 20%);
+    &:hover {
+      color: lighten($color, 100%);
+      background: grayscale($color-alt);
+
+    }
+  }

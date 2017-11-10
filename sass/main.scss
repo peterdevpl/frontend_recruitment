@@ -1,3 +1,59 @@
+@import "modules/_colors";
+@import "modules/_all";
+
+$mapOfPrimarColors:
+(redGwo:#d5041f,
+orangeGwo: #fefb03,
+yellowGwo: #f5bf00,
+whiteGwo: #FFF);
+
+$mapOfColors:
+(backgoundColor:#FFF,
+textColor: #fefb03,
+footerColor: #fe6103,
+linkCoror: #00c6ff,
+hoverColor: #9600ff);
+
 body {
-  background-color: #456;
+  background: map-get($mapOfColors, backgoundColor);
+  font-family: 'Open Sans', sans-serif;
 }
+
+section {
+
+  form {
+    @extend %form ;
+    font-size: 16px;
+
+    @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
+    input {
+      @extend %input;
+    }
+  }
+
+  #showData {
+    @extend %form ;
+    .book {
+      display: flex;
+      justify-content: center;
+      height: 18rem;
+      margin:10px auto;
+      width: 45rem;
+      // padding: 10px;
+      // background: red;
+      border: 1px solid #555;
+      text-align: left;
+
+      .bookImage {
+        width: 40%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+  footer {
+    background-color: map-get($mapOfColors, footerColor);
+  }
