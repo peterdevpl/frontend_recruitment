@@ -5,11 +5,13 @@ document.addEventListener("DOMContentLoaded", function () {
   var submit = document.getElementById("submit"); // Wyszukiwanie przycisku submit w DOM-ie
   var userInput = document.getElementById("searchBook");
 
-  var bookContainer = document.getElementById("show-data");
+  var bookContainer = document.getElementById("showData");
+  console.log(bookContainer);
   var pageCounter = 1;
 
   submit.addEventListener ("click", function(event) {  // dodanie eventu na przycisk submit
-    this.url =  apiPath +  encodeURI(userInput.value);
+    this.url =  apiPath + encodeURI(userInput.value);
+
     console.log(this.url); // sprawdzam w konsoli czy link jest dynamicznie zmieniany
 
     var ourRequest = new XMLHttpRequest();
@@ -31,16 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     ourRequest.send();
 
-
-
     function renderHTML(data) { // funkcja wrapująca div-y zawierające dane API do bookContainer
-      pageCounter ++
-
+      pageCounter++;
       var htmlString = "";
 
-      console.log(pageCounter);
+      var line = document.createElement("div");
 
       for (i = 0; i < data.length; i++) {
+
         htmlString +=
         "<div class='book'>" +
         "<div class='bookImage'>" + '<img src='+data[i].cover+' + height="250">'  + "</div>" +
@@ -55,19 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "<div class='type'>"  + data[i].type + "</div>" +
         "<div class='btnBook'>" + "sprawdź"  + "</div>" +
         "</div>" + "</div>";
-
       }
-
-      if ( pageCounter > 3 ) {
-
-        console.log("jak usunąć bookContainer przed przekazaniem parametru do API ? ");
-        bookContainer.insertAdjacentHTML("afterbegin", htmlString);
-      }
-
-      bookContainer.insertAdjacentHTML("beforeend", htmlString);
-
+      document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML. 
     }
-
   });
-
 });

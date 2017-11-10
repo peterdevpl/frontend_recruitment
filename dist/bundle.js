@@ -135,14 +135,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       }
 
-      if ( pageCounter > 3 ) {
+      if ( pageCounter > 2 ) {
 
         console.log("jak usunąć bookContainer przed przekazaniem parametru do API ? ");
         bookContainer.insertAdjacentHTML("afterbegin", htmlString);
       }
-
-      bookContainer.insertAdjacentHTML("beforeend", htmlString);
-
+      if ( pageCounter = 1 ) {
+        bookContainer.insertAdjacentHTML("beforeend", htmlString);
+      }
     }
 
   });

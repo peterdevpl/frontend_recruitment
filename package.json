@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Vongriffe/frontend_recruitment#readme",
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "fast-json": "^1.1.0",
     "gulp": "^3.9.1",
     "gulp-debug": "^3.1.0",
     "gulp-jslint": "^1.0.10",
