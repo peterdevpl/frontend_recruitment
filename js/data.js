@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "<div class='btnBook'>" + "sprawdź"  + "</div>" +
         "</div>" + "</div>";
       }
-      document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML. 
+      document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML.
     }
   });
 });
