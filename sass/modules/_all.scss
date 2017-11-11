@@ -1,12 +1,29 @@
 
+
 @mixin inputSubmit($colorBackground, $color ) {
   input[type="submit"] {
     background: $colorBackground;
     border-color: transparent;
     color: $color;
     cursor: pointer;
+    margin-top: 16px;
   }
 }
+
+%clearfix {
+  &:after,
+  &:before {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+%float {
+  float: left;
+  display: block;
+}
+
 %input {
     box-sizing: border-box;
     display: block;
@@ -23,6 +40,8 @@
     padding: 1rem;
     width: 45rem;
     margin: 10px auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-radius: 1px;
   }
 
   %button {
@@ -34,6 +53,60 @@
     &:hover {
       color: lighten($color, 100%);
       background: grayscale($color-alt);
-
     }
   }
+
+
+
+@mixin button($colorBasic, $colorHover, $colorText, $colortextHover) {
+  background: $colorBasic;
+  color: $colorText;
+  border: 0;
+  font-size: 18px;
+  border-radius: 2px;
+  transition: .6s;
+  overflow: hidden;
+  &:focus{
+    outline: 0;
+  }
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    filter: blur(30px);
+    transform: translateX(-100px)  skewX(-15deg);
+  }
+  &:after{
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.2);
+    width: 30px;
+    height: 100%;
+    left: 30px;
+    top: 0;
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-100px) skewX(-15deg);
+  }
+  &:hover{
+    background: $colorHover;
+    cursor: pointer;
+    &:before{
+      transform: translateX(300px)  skewX(-15deg);
+      opacity: 0.6;
+      transition: .7s;
+    }
+    &:after{
+      transform: translateX(300px) skewX(-15deg);
+      opacity: 1;
+      transition: .7s;
+    }
+  }
+}

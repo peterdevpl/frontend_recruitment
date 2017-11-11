@@ -38,24 +38,25 @@ document.addEventListener("DOMContentLoaded", function () {
       var htmlString = "";
 
       var line = document.createElement("div");
-
       for (i = 0; i < data.length; i++) {
 
         htmlString +=
         "<div class='book'>" +
         "<div class='bookImage'>" + '<img src='+data[i].cover+' + height="250">'  + "</div>" +
         "<div class='bookInfo'>" +
-        "<div class='title'>" + data[i].title + "</div>" +
+        "<div class='title'>" + "<h2>" + (data[i].title).replace(/\./g,'<br>') + "</h2>"+ "</div>" +
         "<div class='author'>" + data[i].author + "</div>" +
         "<div class='isbn'>" + data[i].isbn + "</div>" +
         "<div class='men'>" + data[i].men + "</div>" +
         "<div class='pages_count'>" + data[i].pages_count + "</div>" +
-        "<div class='levels'>" + JSON.stringify(data[i].levels) + "</div>" + // JSON.stringify zwraca mi ciąg zawierający tekst - do poprawy
+        "<div class='levels'>" + JSON.stringify(data[i].levels).replace(/:|"|school|class|}|{|]|[[]/g,' ') + "</div>" + // JSON.stringify zwraca mi ciąg zawierający tekst
         "<div class='subject'>" + data[i].subject + "</div>" +
         "<div class='type'>"  + data[i].type + "</div>" +
         "<div class='btnBook'>" + "sprawdź"  + "</div>" +
         "</div>" + "</div>";
       }
+
+
       document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML.
     }
   });

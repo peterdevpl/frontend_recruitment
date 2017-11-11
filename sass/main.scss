@@ -1,59 +1,66 @@
 @import "modules/_colors";
 @import "modules/_all";
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 $mapOfPrimarColors:
 (redGwo:#d5041f,
-orangeGwo: #fefb03,
+orangeGwo: #ea8300,
 yellowGwo: #f5bf00,
 whiteGwo: #FFF);
 
 $mapOfColors:
 (backgoundColor:#FFF,
-textColor: #fefb03,
+textColor: #c4c4c4,
 footerColor: #fe6103,
 linkCoror: #00c6ff,
 hoverColor: #9600ff);
+
 
 body {
   background: map-get($mapOfColors, backgoundColor);
   font-family: 'Open Sans', sans-serif;
 }
 
+h2 {
+  color: map-get($mapOfPrimarColors, orangeGwo);
+}
+
+// p {
+//   color: map-get($mapOfColors, textColor);
+// }
+
 section {
 
   form {
     @extend %form ;
     font-size: 16px;
-
     @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
     input {
-      @extend %input;
+      @extend %input ;
+    }
+    #submit{
+      @include button(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo)) ;
     }
   }
 
   #showData {
+    @extend %clearfix ;
+    font-size: 12px;
     @extend %form ;
     .book {
-      display: flex;
-      justify-content: center;
-      height: 18rem;
-      margin:10px auto;
-      width: 45rem;
-      // padding: 10px;
-      // background: red;
-      border: 1px solid #555;
-      text-align: left;
-
-      .bookImage {
-        width: 40%;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-color: transparent;
-      }
+      @extend %float ;
+      margin-bottom: 10px;
+      width: 50%;
+      padding: 1rem;
     }
   }
 }
 
-  footer {
-    background-color: map-get($mapOfColors, footerColor);
-  }
+footer {
+  background-color: map-get($mapOfColors, footerColor);
+}
