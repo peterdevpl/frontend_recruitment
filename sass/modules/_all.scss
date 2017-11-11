@@ -14,10 +14,7 @@
 
 %input {
   box-sizing: border-box;
-  display: block;
   width: 100%;
-  border-width: 1px;
-  border-style: solid;
   padding: 16px;
   outline: 0;
   font-family: inherit;
@@ -32,26 +29,12 @@
   border-radius: 1px;
 }
 
-%button {
-  $color: #5a57ff;
-  $color-alt: #ffc700;
-
-  color: $color-alt;
-  background: lighten($color, 20%);
-  &:hover {
-    color: lighten($color, 100%);
-    background: grayscale($color-alt);
-  }
-}
-
-
 @mixin inputSubmit($colorBackground, $color ) {
   input[type="submit"] {
     background: $colorBackground;
     border-color: transparent;
     color: $color;
     cursor: pointer;
-    margin-top: 16px;
   }
 }
 
@@ -96,4 +79,40 @@
     background: $colorHover;
     cursor: pointer;
   }
+}
+
+@mixin buttonStore($colorBasic, $colorHover, $colorText, $colortextHover) {
+  text-decoration: none;
+  color:  $colorBasic;
+  background: $colorText;
+  margin: 0 auto;
+  text-align: center;
+  transition: all ease .5s;
+  width: 15rem;
+  border: 1px solid $colorBasic;
+  border-radius: 0.2rem;
+  padding: 20px auto;
+  text-transform: uppercase;
+
+  &:hover {
+    width: 18rem;
+    padding: 20px auto;
+
+  }
+
+  &:after {
+    content: "→";
+    transition: all ease .5s;
+    position:relative;
+    opacity: 0;
+    left: -12px;
+  }
+
+  &:hover:after {
+    content: "→";
+    transition: all ease .5s;
+    opacity: 1;
+    left: 8px;
+  }
+
 }
