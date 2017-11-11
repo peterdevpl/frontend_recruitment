@@ -22,7 +22,7 @@ hoverColor: #9600ff);
 
 
 body {
-  background: map-get($mapOfColors, backgoundColor);
+  background: map-get($mapOfPrimarColors, orangeGwo);
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -38,25 +38,52 @@ section {
 
   form {
     @extend %form ;
+    background: map-get($mapOfPrimarColors, whiteGwo);
     font-size: 16px;
     @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
     input {
       @extend %input ;
+      border: 1px solid map-get($mapOfPrimarColors, orangeGwo);
     }
     #submit{
-      @include button(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo)) ;
+      @include button(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
     }
   }
 
   #showData {
     @extend %clearfix ;
-    font-size: 12px;
     @extend %form ;
+    background: map-get($mapOfPrimarColors, whiteGwo);
+    font-size: 12px;
     .book {
       @extend %float ;
+      // border: 1px solid map-get($mapOfPrimarColors, orangeGwo);
       margin-bottom: 10px;
       width: 50%;
+      height: 38rem;
       padding: 1rem;
+      .author {
+        padding-top: 1rem;
+      }
+      .title {
+        padding-top: 1rem;
+      }
+
+      .btnDiv {
+        position: absolute;
+      }
+      .btnBook {
+        bottom: 0;
+        margin-bottom: 1rem;
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        font-size: 12px;
+        @include button(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
+      }
+
+      .bookInfo {
+
+      }
     }
   }
 }

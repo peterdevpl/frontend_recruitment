@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var apiPath = "https://gwo.pl/booksApi/v1/search?query=";
   var submit = document.getElementById("submit"); // Wyszukiwanie przycisku submit w DOM-ie
   var userInput = document.getElementById("searchBook");
+  var userInput2 = document.querySelector('#searchBook')
 
   var bookContainer = document.getElementById("showData");
   console.log(bookContainer);
@@ -23,9 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
         var ourData = JSON.parse(ourRequest.responseText);
         renderHTML(ourData); // przekazuję zmienną zawierającą parsowane dane do funkcji renderHTML().
 
+        if (ourData.length === 0 ) {
+          console.log("puste zapytanie");
+        }
+
       } else {
         console.log("We connected to the server, but it returned an error.");
       }
+
     };
 
     ourRequest.onerror = function() {
@@ -45,18 +51,16 @@ document.addEventListener("DOMContentLoaded", function () {
         "<div class='bookImage'>" + '<img src='+data[i].cover+' + height="250">'  + "</div>" +
         "<div class='bookInfo'>" +
         "<div class='title'>" + "<h2>" + (data[i].title).replace(/\./g,'<br>') + "</h2>"+ "</div>" +
-        "<div class='author'>" + data[i].author + "</div>" +
-        "<div class='isbn'>" + data[i].isbn + "</div>" +
-        "<div class='men'>" + data[i].men + "</div>" +
-        "<div class='pages_count'>" + data[i].pages_count + "</div>" +
-        "<div class='levels'>" + JSON.stringify(data[i].levels).replace(/:|"|school|class|}|{|]|[[]/g,' ') + "</div>" + // JSON.stringify zwraca mi ciąg zawierający tekst
-        "<div class='subject'>" + data[i].subject + "</div>" +
-        "<div class='type'>"  + data[i].type + "</div>" +
-        "<div class='btnBook'>" + "sprawdź"  + "</div>" +
+        "<div class='author'>" + "autorzy: "+ (data[i].author) + "</div>" +
+        "<div class='isbn'>" + "ISBN: " + data[i].isbn + "</div>" +
+        "<div class='men'>" + "numer dopuszczenia MEN: " + data[i].men + "</div>" +
+        "<div class='pages_count'>" + "liczba stron: " + data[i].pages_count + "</div>" +
+        "<div class='levels'>" + "poziomy nauczania: " + JSON.stringify(data[i].levels).replace(/:|"|school|class|}|{|]|[[]/g,' ') + "</div>" + // JSON.stringify zwraca mi ciąg zawierający tekst
+        "<div class='subject'>" + "przedmiot: " + data[i].subject + "</div>" +
+        "<div class='type'>"  + "rodzaj publikacji: " + data[i].type + "</div>" +
+        "<div class='btnDiv'>"+'<a href='+data[i].url+' class="btnBook" >' + "Przejdź do księgarni" + "</a>" + "</div>" +
         "</div>" + "</div>";
       }
-
-
       document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML.
     }
   });
