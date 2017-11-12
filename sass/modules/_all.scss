@@ -23,7 +23,7 @@
 
 %form {
   padding: 1rem;
-  width: 45rem;
+  width: 65rem;
   margin: 10px auto;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   border-radius: 1px;
@@ -37,7 +37,6 @@
     cursor: pointer;
   }
 }
-
 
 @mixin button($colorBasic, $colorHover, $colorText, $colortextHover) {
   background: $colorBasic;
@@ -55,7 +54,6 @@
     content: '';
     display: block;
     position: absolute;
-    width: 60px;
     height: 100%;
     left: 0;
     top: 0;
@@ -88,14 +86,14 @@
   margin: 0 auto;
   text-align: center;
   transition: all ease .5s;
-  width: 15rem;
+  width: 17rem;
   border: 1px solid $colorBasic;
   border-radius: 0.2rem;
   padding: 20px auto;
   text-transform: uppercase;
 
   &:hover {
-    width: 18rem;
+    width: 19rem;
     padding: 20px auto;
 
   }
