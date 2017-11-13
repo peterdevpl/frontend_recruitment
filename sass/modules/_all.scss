@@ -14,7 +14,6 @@
 
 %input {
   box-sizing: border-box;
-  width: 100%;
   padding: 16px;
   outline: 0;
   font-family: inherit;
@@ -23,7 +22,6 @@
 
 %form {
   padding: 1rem;
-  width: 65rem;
   margin: 10px auto;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   border-radius: 1px;
@@ -86,14 +84,14 @@
   margin: 0 auto;
   text-align: center;
   transition: all ease .5s;
-  width: 17rem;
+  width: 90%;
   border: 1px solid $colorBasic;
   border-radius: 0.2rem;
   padding: 20px auto;
   text-transform: uppercase;
 
   &:hover {
-    width: 19rem;
+    width: 100%;
     padding: 20px auto;
 
   }
@@ -112,5 +110,4 @@
     opacity: 1;
     left: 8px;
   }
-
 }

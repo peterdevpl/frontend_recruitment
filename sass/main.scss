@@ -1,5 +1,7 @@
 @import "modules/_colors";
 @import "modules/_all";
+@import "modules/_media";
+
 @import "partials/_footer";
 @import "partials/_base";
 
@@ -20,27 +22,42 @@ textColor: #bababa);
 section {
 
   form {
-
-    @extend %clearfix ;
-    #searchBook {
-      width:59%;
+    @include phone {
+      width: 95%;
     }
-
-    #submit {
-      width:39%;
-      margin-left: 0.6rem;
+    @include smPhone {
+      width: 95%;
+    }
+    @include tablet {
+      width: 95%;
+    }
+    @include desktop {
+      width: 80%;
+    }
+    @include maxDesktop {
+      width: 80%;
     }
 
     @extend %form ;
+    @extend %clearfix ;
+    @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
     background: map-get($mapOfPrimarColors, whiteGwo);
     font-size: 16px;
-    @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
 
+    #searchBook {
+      width:70%;
+    }
+
+    #submit {
+      width:26%;
+      margin-left: 0.6rem;
+    }
     input {
       @extend %input ;
       border: 1px solid map-get($mapOfPrimarColors, orangeGwo);
-      font-family: inherit;
       color: map-get($mapOfPrimarColors, orangeGwo);
+      font-family: inherit;
+      width: 100%;
     }
 
     input[type="placeholder"]  {
@@ -53,6 +70,24 @@ section {
   }
 
   #showData {
+
+    width: 65rem;
+    @include phone {
+      width: 95%;
+    }
+    @include smPhone {
+      width: 95%;
+    }
+    @include tablet {
+      width: 95%;
+    }
+    @include desktop {
+      width: 80%;
+    }
+    @include maxDesktop {
+      width: 80%;
+    }
+
     display: flex;
     flex-wrap: wrap;
 
@@ -63,8 +98,24 @@ section {
     .book {
       @extend %clearfix ;
       @extend %float ;
-      position: relative;
       width: 33.1%;
+
+      @include tablet {
+        width: 49%;
+      }
+      @include phone {
+        width: 100%;
+      }
+      @include smPhone {
+        width: 49%;
+      }
+      @include desktop {
+        width: 33%;
+      }
+      @include maxDesktop {
+        width: 24.7%;
+      }
+
       padding: 1rem 1rem 1rem;
       background: map-get($mapOfPrimarColors, whiteGwo);
       margin: 1px;
@@ -94,7 +145,6 @@ section {
           margin-bottom: 2rem;
           padding: 1rem 2.5rem;
           font-size: 12px;
-
           @include buttonStore(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
         }
       }
@@ -111,13 +161,16 @@ section {
         overflow: hidden;
         padding: 1rem;
         height: 16rem;
-        border: 1px solid map-get($mapOfColors, backgoundColor);
+        border-left: 1px solid map-get($mapOfPrimarColors, orangeGwo);
         background: map-get($mapOfColors, ColorBG);
+
+
         img {
           box-shadow: 0 2px 5px rgba(0,0,0,0.1);
           height: 14rem;
         }
       }
+
     }
   }
 }
