@@ -1,5 +1,6 @@
 @import "modules/_colors";
 @import "modules/_all";
+@import "modules/_flex";
 @import "modules/_media";
 @import "partials/_footer";
 @import "partials/_base";
@@ -69,6 +70,9 @@ section {
   }
 
   #showData {
+    @include flexbox();
+    @include flex-wrap(wrap);
+
     width: 65rem;
     @include phone {
       width: 95%;
@@ -85,15 +89,11 @@ section {
     @include maxDesktop {
       width: 80%;
     }
-    display: flex;
-    flex-wrap: wrap;
     @extend %form;
     background: map-get($mapOfPrimarColors, whiteGwo);
     font-size: 12px;
 
     .book {
-      @extend %clearfix;
-      @extend %float;
       width: 33.1%;
       @include tablet {
         width: 49%;
@@ -127,14 +127,11 @@ section {
       }
 
       .btnDiv {
+        @include align-self(flex-end);
+        @include flexbox();
         margin-top: auto;
         margin-top: 1rem;
-        display: -webkit-flex;
-        -webkit-align-items: center;
-        align-items: flex-end;
-
         .btnBook {
-          margin-bottom: 2rem;
           padding: 1rem 2.5rem;
           font-size: 12px;
           @include buttonStore(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
