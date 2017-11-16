@@ -19,11 +19,16 @@
 // hoverColor: #9600ff,
 // textColor: #bababa);
 
+
+  ///////////////////
+  // wyszukiwarka //
+ //////////////////
+
 section {
 
   form {
     @extend %form;
-    @extend %clearfix;
+    // @extend %clearfix;
     @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
     background: map-get($mapOfPrimarColors, whiteGwo);
     font-size: 16px;
@@ -42,16 +47,13 @@ section {
     @include maxDesktop {
       width: 80%;
     }
-
     #searchBook {
       width: 70%;
     }
-
     #submit {
       width: 26%;
       margin-left: 0.6rem;
     }
-
     input {
       @extend %input;
       border: 1px solid map-get($mapOfPrimarColors, orangeGwo);
@@ -68,6 +70,10 @@ section {
       @include button(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
     }
   }
+
+////////////////////////////
+// informacje o książkach//
+//////////////////////////
 
   #showData {
     @include flexbox();
@@ -94,6 +100,16 @@ section {
     font-size: 12px;
 
     .book {
+      @include align-self(flex-end);
+      justify-self: flex-end;
+
+      :first-child  {
+      }
+      :nth-last-child(1) {
+        @include align-self(flex-end);
+        margin-bottom: auto;
+        margin-top: 1rem;
+      }
       width: 33.1%;
       @include tablet {
         width: 49%;
@@ -117,42 +133,32 @@ section {
       .author {
         padding-top: 1rem;
       }
-
       .title {}
-
       .bookInfo {
         width: 100%;
         background: map-get($mapOfColors, ColorBG);
         padding: 16px 12px 16px 16px;
       }
-
-      .btnDiv {
-        @include align-self(flex-end);
+      div.btnDiv {
         @include flexbox();
-        margin-top: auto;
-        margin-top: 1rem;
         .btnBook {
           padding: 1rem 2.5rem;
           font-size: 12px;
           @include buttonStore(map-get($mapOfPrimarColors, orangeGwo), map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo), map-get($mapOfPrimarColors, whiteGwo));
         }
       }
-
       .bookInfo {
         border-left: 1px solid map-get($mapOfPrimarColors, orangeGwo);
       }
-
       .bookInfo > div {
         color: map-get($mapOfColors, textColor);
       }
-
       .bookImage {
         overflow: hidden;
         padding: 1rem;
         height: 16rem;
         border-left: 1px solid map-get($mapOfPrimarColors, orangeGwo);
         background: map-get($mapOfColors, ColorBG);
-
         img {
           box-shadow: 0 2px 5px rgba(0,0,0,0.1);
           height: 14rem;
