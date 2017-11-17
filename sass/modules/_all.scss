@@ -76,37 +76,40 @@
     cursor: pointer;
   }
 }
+$button-color: #2D3142;
 
 @mixin buttonStore($colorBasic, $colorHover, $colorText, $colortextHover) {
-  text-decoration: none;
-  color:  $colorBasic;
-  background: $colorText;
-  margin: 0 auto;
+
+  display: block;
+  width: 100%;
+
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
   text-align: center;
-  transition: all ease .5s;
-  width: 90%;
-  border: 1px solid $colorBasic;
-  border-radius: 0.2rem;
-  padding: 20px auto;
-  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 1px;
+  text-decoration: none;
+  color: $colorText;
+  background-color: $colorBasic;
 
   &:hover {
-    width: 100%;
-    padding: 20px auto;
-
+    background-color: $colorHover;
   }
-
-  &:after {
-    content: "→";
-    transition: all ease .5s;
-    opacity: 0;
-    left: -12px;
+  &:focus {
   }
-
-  &:hover:after {
-    content: "→";
-    transition: all ease .5s;
-    opacity: 1;
-    left: 8px;
+  &:active {
   }
 }

@@ -29,6 +29,7 @@
   }
 
   // Flex Line Wrapping
+  // umieszcza elementy w kolejnym anonimowym bloku
   // - applies to: flex containers
   // nowrap | wrap | wrap-reverse
   @mixin flex-wrap($wrap) {
