@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ourRequest.onerror = function() {
       console.log("Connection error");
+      var webConnection = "<div class='note'>Brak połączenia z serwerem</div>";
+      document.getElementById("showData").innerHTML = webConnection;
+
     };
     ourRequest.send();
 
@@ -50,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function() {
         htmlString +=
           "<div class='book'>" +
           "<div class='bookContent'>" +
-          // "<div class='bookImage' style='background-image: url("+data[i].cover+")'>" + "</div>" +
           "<div class='bookImage'>" + '<img src=' + data[i].cover + ' + height="250">' + "</div>" +
           "<div class='bookInfo'>" +
           "<div class='title'>" + "<h2>" + (data[i].title).replace(/\./g, '<br>') + "</h2>" + "</div>" +
@@ -61,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
           "<div class='levels'>" + "poziomy nauczania: " + JSON.stringify(data[i].levels).replace(/:|"|school|class|}|{|]|[[]/g, ' ') + "</div>" + // JSON.stringify zwraca mi ciąg zawierający tekst
           "<div class='subject'>" + "przedmiot: " + data[i].subject + "</div>" +
           "<div class='type'>" + "rodzaj publikacji: " + data[i].type + "</div>" + "</div>" + "</div>"
-          + "<div class='btnDiv2'>" + '<a href=' + data[i].url + ' class="btnBook2" >' + "Przejdź do księgarni" + "</a>" + "</div>" + "</div>";
+          + "<div class='btnDiv'>" + '<a href=' + data[i].url + ' class="btnBook" >' + "Przejdź do księgarni" + "</a>" + "</div>" + "</div>";
       }
       document.getElementById("showData").innerHTML = htmlString; // wykorzystałem atrybut innerHTML który zwraca kod HTML.
     }

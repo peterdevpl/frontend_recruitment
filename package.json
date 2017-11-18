@@ -4,7 +4,6 @@
   "description": "Zadanie rekrutacyjne",
   "main": "index.js",
   "scripts": {
-    "test": "test",
     "server": "webpack --config webpack.config.js",
     "dev": "webpack -d --watch",
     "prod": "webpack -p"

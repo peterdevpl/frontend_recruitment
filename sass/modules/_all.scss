@@ -23,7 +23,6 @@
 %form {
   padding: 1rem;
   margin: 10px auto;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   border-radius: 1px;
 }
 
@@ -33,8 +32,14 @@
     border-color: transparent;
     color: $color;
     cursor: pointer;
+
+    :focus {
+    //  outline: none;
+     border: 0.1em solid darken(#ccc, 6%);
+   }
   }
 }
+
 
 @mixin button($colorBasic, $colorHover, $colorText, $colortextHover) {
   background: $colorBasic;

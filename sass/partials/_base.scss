@@ -7,16 +7,15 @@
 }
 
 body {
-  background: map-get($mapOfPrimarColors, orangeGwo);
+  // background: map-get($mapOfColors, fontAdditional);
   font-family: 'Open Sans', sans-serif;
   text-rendering: optimizeSpeed;
   image-rendering: pixelated;
 }
 
 h2 {
-  color: map-get($mapOfPrimarColors, orangeGwo);
+  color: map-get($mapOfPrimarColors, fontMain);
   font-kerning: auto;
   font-weight: 800;
   font-size: 18px;
-  margin-top: 1rem;
 }

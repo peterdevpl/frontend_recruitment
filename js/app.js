@@ -1,2 +1,2 @@
 require("./data.js");
-require("./ajax.js");
+require("./component.js");
