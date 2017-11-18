@@ -21,6 +21,7 @@
 // fontAdditional: #bababa);
 
 
+
 ////////////////////////////
 // search / wyszukiwarka //
 //////////////////////////
@@ -64,9 +65,9 @@ section {
     }
   }
 
-  //////////////////
-  // render book//
-  ///////////////
+  /////////////////////
+  //// render book////
+  ///////////////////
 
   #showData {
     @include flexbox();
@@ -118,6 +119,17 @@ section {
           padding-top: 1rem;
         }
         .title {
+
+          ul {
+            list-style-type: none;
+            :nth-of-type(1) {
+              font-size: 25px;
+              color: map-get($mapOfPrimarColors, fontMain);
+            }
+            :nth-of-type(2) {
+              font-size: 18px;
+            }
+          }
           padding-bottom: 1rem;
           border-bottom: 0.3rem solid map-get($mapOfPrimarColors, fontMain);
         }
@@ -125,9 +137,6 @@ section {
           width: 100%;
           background: map-get($mapOfColors, ColorBG);
           padding: 16px 12px 16px 16px;
-        }
-        .bookInfo {
-          // border-left: 1px solid map-get($mapOfPrimarColors, whiteGwo);
         }
         .bookInfo > div {
           color: map-get($mapOfColors, fontAdditional);
@@ -144,7 +153,6 @@ section {
           }
         }
       }
-
     }
 
     //////////////////////////////////////////////////////
@@ -176,17 +184,17 @@ footer {
     @include flexbox();
     @include justify-content(space-between)
 
+    @include phone(95%);
+    @include smPhone(95%);
+    @include tablet(95%);
+    @include desktop(80%);
+    @include maxDesktop(80%);
 
     color: map-get($mapOfPrimarColors, whiteGwo);
     background: map-get($mapOfPrimarColors, redGwo);
     padding: 0.5rem;
     margin: 1rem auto;
     font-size: 10px;
-    @include phone(95%);
-    @include smPhone(95%);
-    @include tablet(95%);
-    @include desktop(80%);
-    @include maxDesktop(80%);
 
     a {
       text-decoration: none;

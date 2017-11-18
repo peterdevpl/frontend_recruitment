@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ourRequest.onerror = function() {
       console.log("Connection error");
       var webConnection = "<div class='note'>Brak połączenia z serwerem</div>";
-      document.getElementById("showData").innerHTML = webConnection;
+      document.getElementById("showData").innerHTML = ourData;
 
     };
     ourRequest.send();
@@ -50,12 +50,14 @@ document.addEventListener("DOMContentLoaded", function() {
       var line = document.createElement("div");
       for (i = 0; i < data.length; i++) {
 
+        console.log((data[i].title));
+
         htmlString +=
           "<div class='book'>" +
           "<div class='bookContent'>" +
           "<div class='bookImage'>" + '<img src=' + data[i].cover + ' + height="250">' + "</div>" +
           "<div class='bookInfo'>" +
-          "<div class='title'>" + "<h2>" + (data[i].title).replace(/\./g, '<br>') + "</h2>" + "</div>" +
+          "<div class='title'>" + "<ul>" + "<li>" + (data[i].title).replace(/\./g, '</li><li>') + "</li>" + "</ul>" + "</div>" +
           "<div class='author'>" + "autorzy: " + (data[i].author) + "</div>" +
           "<div class='isbn'>" + "ISBN: " + data[i].isbn + "</div>" +
           "<div class='men'>" + "numer dopuszczenia MEN: " + data[i].men + "</div>" +
