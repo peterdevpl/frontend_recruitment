@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ourRequest.onerror = function() {
       console.log("Connection error");
       var webConnection = "<div class='note'>Brak połączenia z serwerem</div>";
-      document.getElementById("showData").innerHTML = ourData;
+      document.getElementById("showData").innerHTML = webConnection;
 
     };
     ourRequest.send();

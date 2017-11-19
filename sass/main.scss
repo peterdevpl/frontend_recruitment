@@ -37,15 +37,19 @@ section {
     @extend %form;
     // @extend %clearfix;
     @include inputSubmit(map-get($mapOfPrimarColors, redGwo), map-get($mapOfPrimarColors, whiteGwo));
-    background: map-get($mapOfColors, ColorBG);
+    // background: map-get($mapOfColors, ColorBG);
 
     font-size: 16px;
 
     #searchBook {
-      width: 70%;
+      @include phone(68%);
+      @include smPhone(68%);
+      @include tablet(68%);
+      @include desktop(70%);
+      @include maxDesktop(70%);
     }
     #submit {
-      width: 26%;
+      width: 28%;
       margin-left: 0.6rem;
     }
     input {
@@ -74,8 +78,6 @@ section {
     @include flex-wrap(wrap);
     background: map-get($mapOfColors, fontAdditional);
 
-    // border: 1px solid map-get($mapOfPrimarColors, redGwo);
-
     > :nth-of-type(1) {
       padding: 2rem;
       width: 100%;
@@ -86,19 +88,23 @@ section {
     }
 
     width: 65rem;
+    font-size: 12px;
+
     @include phone(95%);
     @include smPhone(95%);
     @include tablet(95%);
     @include desktop(80%);
     @include maxDesktop(80%);
     @extend %form;
-    font-size: 12px;
 
     .book {
       background: map-get($mapOfColors, ColorBG);
       padding: 1rem;
       margin: 1px;
       width: 33.1%;
+
+      @include bookHover(red, map-get($mapOfColors, backgoundColor), green, yellow) ;
+
 
       @include flexbox();
       @include flex-direction(column);
@@ -107,7 +113,7 @@ section {
       @include tablet(49%);
       @include phone(100%);
       @include smPhone(49%);
-      @include desktop(33%);
+      @include desktop(33.1%);
       @include maxDesktop(24.7%);
 
       > :nth-of-type(3) {
@@ -135,7 +141,7 @@ section {
         }
         .bookInfo {
           width: 100%;
-          background: map-get($mapOfColors, ColorBG);
+          // background: map-get($mapOfColors, ColorBG);
           padding: 16px 12px 16px 16px;
         }
         .bookInfo > div {

@@ -1,15 +1,52 @@
+document.addEventListener("DOMContentLoaded", function() {
+  console.log("DOM fully loaded and parsed");
 
-var formattedBody = "Witam, \n\n W związku z przesłaną aplikacją, chcielibyśmy zaprosić Pana na rozmowę kwalifikacyjną";
+  var formattedBody = "Witam, \n\n Tereść wiadomości...";
 
-var a = document.createElement('a');
-var linkText = document.createTextNode("Kontakt");
-a.class = "contact";
-a.innerHTML = linkText;
+  var gitHub = document.createElement('a');
+  var portfolio = document.createElement('a');
+  var contactToMail = document.createElement('a');
 
-var mailToLink = "mailto:kamelboukoffa.mac@gmail.com?";
-var mailContent = "Subject=Rozmowa kwalifikacjna&";
-mailContent += "cc=vongriffe.mac@gmail.com&";
-mailContent += "body=" + encodeURIComponent(formattedBody);
+  document.getElementById("linkGitHubId").appendChild(gitHub);
+  document.getElementById("linkPortfolioId").appendChild(portfolio);
+  document.getElementById("contactMailId").appendChild(contactToMail);
 
-a.href = mailToLink + mailContent;
-document.getElementById("ex").appendChild(a);
+  var footerTextFirst = document.createTextNode("GitHub");
+  var footerTextSecond = document.createTextNode("Portfolio");
+  var emailText = document.createTextNode("Kontakt");
+
+  var footerLinkFirst = "https://github.com/Vongriffe";
+  var footerLinkSecond = "http://capalgerie.org/portfolio/";
+  var mailToLink = "mailto:kamelboukoffa.mac@gmail.com?";
+
+
+  console.log();
+
+  function mailConcat(link, tag) {
+    var content = "Subject=Zadanie rekrutacyjne frontend&";
+    link+= "";
+    if (link.indexOf("@") >=0 ) {
+      content += "body=" + encodeURIComponent(formattedBody);
+      tag.appendChild(emailText);
+      tag.title = "napisz maila";
+      tag.href = link + content;
+    } else if (link.indexOf("github") >=0 ) {
+      tag.appendChild(footerTextFirst);
+      tag.href = link;
+      tag.target = '_blank';
+    } else if (link.indexOf("portfolio") >=0 ) {
+      tag.appendChild(footerTextSecond);
+      tag.href = link;
+      tag.target = '_blank';
+    }
+  }
+  mailConcat(mailToLink, contactToMail);
+  mailConcat(footerLinkFirst, gitHub);
+  mailConcat(footerLinkSecond, portfolio);
+
+
+
+
+
+
+});

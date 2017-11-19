@@ -13,15 +13,15 @@
 }
 
 %input {
-  box-sizing: border-box;
-  padding: 16px;
+  // box-sizing: border-box;
+  padding: 1rem;
   outline: 0;
   font-family: inherit;
   font-size: 0.95em;
 }
 
 %form {
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 10px auto;
   border-radius: 1px;
 }
@@ -34,14 +34,15 @@
     cursor: pointer;
 
     :focus {
-    //  outline: none;
-     border: 0.1em solid darken(#ccc, 6%);
-   }
+      //  outline: none;
+      border: 0.1em solid darken(#ccc, 6%);
+    }
   }
 }
 
 
 @mixin button($colorBasic, $colorHover, $colorText, $colortextHover) {
+
   background: $colorBasic;
   color: $colorText;
   border: 0;
@@ -81,13 +82,13 @@
     cursor: pointer;
   }
 }
+
 $button-color: #2D3142;
 
 @mixin buttonStore($colorBasic, $colorHover, $colorText, $colortextHover) {
 
   display: block;
   width: 100%;
-
   margin-top: 1rem;
   padding: 1rem 2rem;
   font-size: 14px;
@@ -95,10 +96,17 @@ $button-color: #2D3142;
   line-height: 1.42857143;
   text-align: center;
   white-space: nowrap;
+
   vertical-align: middle;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+
   cursor: pointer;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -112,6 +120,31 @@ $button-color: #2D3142;
 
   &:hover {
     background-color: $colorHover;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  &:focus {
+  }
+  &:active {
+  }
+}
+
+
+@mixin bookHover($colorBasic, $colorHover, $colorText, $colortextHover) {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $colorHover;
+    top: 0;
+    // opacity: 0;
+    // filter: blur(5px);
+    // transform: translateX(-5px);
+    transform: translateY(-5px);
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+
   }
   &:focus {
   }
