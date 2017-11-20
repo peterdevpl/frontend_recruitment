@@ -1,3 +1,5 @@
+@import "modules/_colors";
+
 %clearfix {
   &:after,
   &:before {
@@ -34,12 +36,10 @@
     cursor: pointer;
 
     :focus {
-      //  outline: none;
       border: 0.1em solid darken(#ccc, 6%);
     }
   }
 }
-
 
 @mixin button($colorBasic, $colorHover, $colorText, $colortextHover) {
 
@@ -55,7 +55,8 @@
     outline: 0;
   }
   &:before{
-    content: '';
+    font-family: 'iconfont';
+    content: "\ea2d";
     display: block;
     position: absolute;
     height: 100%;
@@ -129,7 +130,6 @@ $button-color: #2D3142;
   }
 }
 
-
 @mixin bookHover($colorBasic, $colorHover, $colorText, $colortextHover) {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -149,5 +149,28 @@ $button-color: #2D3142;
   &:focus {
   }
   &:active {
+  }
+}
+
+
+$total: 5;
+$step: 90deg / $total;
+
+@mixin fullOfColors {
+  @for $i from 1 through $total {
+    :nth-child(#{$i}) {
+      background: adjust-hue(blue, $i * $step);
+    }
+  }
+}
+
+@mixin fullOfMainColors {
+
+  $primarColors: (#d5041f, #ea8300, #f5bf00, #FFF, #747a8a);
+
+  @for $i from 1 through length($primarColors) {
+    :nth-child(#{length($primarColors)}n+#{$i}) {
+      background: nth($primarColors, $i)
+    }
   }
 }

@@ -130,6 +130,7 @@ section {
             list-style-type: none;
             :nth-of-type(1) {
               font-size: 25px;
+              font-weight: 800;
               color: map-get($mapOfPrimarColors, fontMain);
             }
             :nth-of-type(2) {
@@ -150,12 +151,12 @@ section {
         .bookImage {
           width: 100%;
           padding: 1rem;
-          height: 16rem;
+          height: 15rem;
           background: map-get($mapOfPrimarColors, whiteGwo);
 
           img {
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            height: 14rem;
+            // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+            height: 13rem;
           }
         }
       }
@@ -186,9 +187,9 @@ section {
 /////////////////////////////
 
 footer {
-  div {
+  .full-of-color {
     @include flexbox();
-    @include justify-content(space-between)
+    @include flex-direction(row);
 
     @include phone(95%);
     @include smPhone(95%);
@@ -196,15 +197,38 @@ footer {
     @include desktop(80%);
     @include maxDesktop(80%);
 
+    @include fullOfMainColors;
+    margin: 0 auto;
+
+    div {
+      padding: 0.2rem;
+      width: 30%;
+    }
+  }
+  .main-width {
+    @include flexbox();
+    @include flex-direction(row-reverse );
+
+    // @include justify-content(space-between)
+
+    @include phone(95%);
+    @include smPhone(95%);
+    @include tablet(95%);
+    @include desktop(80%);
+    @include maxDesktop(80%);
     color: map-get($mapOfPrimarColors, whiteGwo);
     background: map-get($mapOfPrimarColors, redGwo);
-    padding: 0.5rem;
-    margin: 1rem auto;
+
+    margin: 0 auto;
     font-size: 10px;
 
     a {
+      @include flexbox();
+      background: map-get($mapOfPrimarColors, redGwo);
       text-decoration: none;
       color: map-get($mapOfPrimarColors, whiteGwo);
+      padding: 2rem;
+      width: 100%;
     }
   }
 }
