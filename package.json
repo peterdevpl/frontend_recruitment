@@ -1,0 +1,36 @@
+{
+  "name": "frontend_recruitment",
+  "version": "1.0.0",
+  "description": "Zadanie rekrutacyjne",
+  "main": "index.js",
+  "scripts": {
+    "server": "webpack --config webpack.config.js",
+    "dev": "webpack -d --watch",
+    "prod": "webpack -p",
+    "install": "npm install gulp --save-dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vongriffe/frontend_recruitment.git"
+  },
+  "author": "Kamel Boukoffa - Vongriffe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vongriffe/frontend_recruitment/issues"
+  },
+  "homepage": "https://github.com/Vongriffe/frontend_recruitment#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "fast-json": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^3.1.0",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-jslint": "^1.0.10",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-watch": "^4.3.11",
+    "html-webpack-plugin": "^2.30.1",
+    "webpack": "^3.8.1"
+  }
+}
